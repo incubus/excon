@@ -63,7 +63,7 @@ module Excon
         :reason_phrase => reason_phrase
       }
 
-      unix_proxy = datum[:proxy] ? datum[:proxy][:scheme] == UNIX : false
+      unix_proxy = false # datum[:proxy] ? datum[:proxy][:scheme] == UNIX : false
       unless datum[:scheme] == UNIX || unix_proxy
         datum[:response].merge!(
           :remote_ip     => socket.remote_ip,
